@@ -3,6 +3,13 @@ package primoesempio;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -13,6 +20,9 @@ public class Client {
 	protected Shell shlClient;
 	private Text txtInvia;
 	private Text txtChat;
+	private Socket s;
+	private PrintWriter out;
+	private BufferedReader in;
 
 	/**
 	 * Launch the application.
@@ -55,9 +65,18 @@ public class Client {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				// Si connette al server e crea il socket
-				// Crea un thread di ascolto dei messaggi a cui passerà:
-				// - Il socket
-				// - La grafica
+				try {
+					// Crea un thread di ascolto dei messaggi a cui passerà:
+					s=new Socket("localhost", 9999);
+					ThreadClient tc=new ThreadClient(s, Client.this);
+					out=new PrintWriter(s.getOutputStream(), true);
+					// - Il socket
+					// - La grafica
+					tc.start();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnConnessione.setBounds(10, 10, 400, 25);
@@ -72,14 +91,25 @@ public class Client {
 			public void widgetSelected(SelectionEvent e) {
 				// Uso il socket già aperto
 				// Leggo il messaggio dalla casella di testo
+				String message=txtInvia.getText();
 				// Invio un messaggio al client con il printwriter
+				out.println(message);
 			}
 		});
 		btnInvia.setBounds(335, 227, 75, 25);
 		btnInvia.setText("Invia");
 		
-		txtChat = new Text(shlClient, SWT.BORDER);
+		txtChat = new Text(shlClient, SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
 		txtChat.setBounds(10, 41, 400, 170);
-
-	}
+		
+		}
+		public void addMessage(String message){
+			Display.getDefault().asyncExec(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					txtChat.append(message +"\n");
+				}
+			});
+		}
 }
