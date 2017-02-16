@@ -67,6 +67,14 @@ public class Client {
 		txtInvia.setBounds(10, 229, 307, 21);
 		
 		Button btnInvia = new Button(shlClient, SWT.NONE);
+		btnInvia.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				// Uso il socket già aperto
+				// Leggo il messaggio dalla casella di testo
+				// Invio un messaggio al client con il printwriter
+			}
+		});
 		btnInvia.setBounds(335, 227, 75, 25);
 		btnInvia.setText("Invia");
 		
