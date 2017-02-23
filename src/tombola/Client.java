@@ -1,11 +1,15 @@
 package tombola;
 
+import java.net.Socket;
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 public class Client {
 
 	protected Shell shell;
+	private Socket s;
+	
 
 	/**
 	 * Launch the application.
@@ -43,6 +47,16 @@ public class Client {
 		shell.setSize(450, 300);
 		shell.setText("SWT Application");
 
+	}
+	
+	public void addMessage(String message){
+		Display.getDefault().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				//txtChat.append(message +"\n");
+			}
+		});
 	}
 
 }
