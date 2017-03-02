@@ -103,7 +103,7 @@ public class Server {
 					n5.setText(String.valueOf(num5));
 					check=true;
 				}else{
-					controlla.setText("Numeri già generati");
+					controlla.setText("Numeri già generati!");
 				}	
 				
 			}
