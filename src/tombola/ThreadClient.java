@@ -3,6 +3,7 @@ package tombola;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public class ThreadClient extends Thread {
@@ -35,5 +36,10 @@ public class ThreadClient extends Thread {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void scrivi(String m) throws IOException{
+		PrintWriter out=new PrintWriter(s.getOutputStream(), true);
+		out.println(m);
 	}
 }
