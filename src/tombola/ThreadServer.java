@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class ThreadServer extends Thread {
 	private ServerSocket ss;
 	private ArrayList<Connessione> connessioni=new ArrayList<>();
+	private	ArrayList<Integer> numeriEstratti = new ArrayList<Integer>();
 	
 	public ThreadServer() throws IOException {
 		// TODO Auto-generated constructor stub
@@ -35,6 +36,22 @@ public class ThreadServer extends Thread {
 		for(int i=0;i<connessioni.size();i++){
 			connessioni.get(i).scrivi(m);
 		}
+	}	
+
+	public int numera() {
+		int n = 0;
+		boolean eOk = false;
+		while(!eOk){
+			n = (int)(Math.random() * 50) + 1;
+			eOk=true;
+			for(int i=0;i<numeriEstratti.size();i++){
+				if(n == numeriEstratti.get(i)){
+					eOk = false;
+					break;
+				}
+			}
+		}
+		return n;
 	}
 	
 	public class Connessione extends Thread{
@@ -69,5 +86,6 @@ public class ThreadServer extends Thread {
 		public void scrivi(String s){
 			out.println(s);
 		}
+	
 	}
 }

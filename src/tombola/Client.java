@@ -10,8 +10,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.ui.internal.progress.TaskBarProgressManager;
-import org.eclipse.jface.viewers.TableViewer;
+
 
 
 public class Client {
@@ -96,22 +95,16 @@ public class Client {
 			public void run() {
 				numeri.add(Integer.parseInt(message));
 				System.out.println(numeri);
+				int n = 0;
 				if(numeri.size()==15){
-					ti1.setText(0, numeri.get(0).toString());
-					ti2.setText(0, numeri.get(1).toString());
-					ti3.setText(0, numeri.get(2).toString());
-					ti1.setText(1, numeri.get(3).toString());
-					ti2.setText(1, numeri.get(4).toString());
-					ti3.setText(1, numeri.get(5).toString());
-					ti1.setText(2, numeri.get(6).toString());
-					ti2.setText(2, numeri.get(7).toString());
-					ti3.setText(2, numeri.get(8).toString());
-					ti1.setText(3, numeri.get(9).toString());
-					ti2.setText(3, numeri.get(10).toString());
-					ti3.setText(3, numeri.get(11).toString());
-					ti1.setText(4, numeri.get(12).toString());
-					ti2.setText(4, numeri.get(13).toString());
-					ti3.setText(4, numeri.get(14).toString());
+					for(int i = 0;i < 5;i++){
+					ti1.setText(i, numeri.get(n).toString());
+					n++;
+					ti2.setText(i, numeri.get(n).toString());
+					n++;
+					ti3.setText(i, numeri.get(n).toString());
+					n++;
+					}
 				}
 			}
 		});
