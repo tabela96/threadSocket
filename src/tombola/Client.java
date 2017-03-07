@@ -11,6 +11,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.internal.progress.TaskBarProgressManager;
+import org.eclipse.jface.viewers.TableViewer;
+
 
 public class Client {
 
@@ -60,34 +62,27 @@ public class Client {
 		shell = new Shell();
 		shell.setSize(450, 166);
 		shell.setText("SWT Application");
-
-		table = new Table(shell, SWT.FULL_SELECTION);
-		table.setBounds(10, 10, 415, 81);
+		
+		table = new Table(shell, SWT.NONE);
+		table.setBounds(10, 10, 415, 241);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-
+		
 		TableColumn da0a10 = new TableColumn(table, SWT.NONE);
+		da0a10.setResizable(false);
 		da0a10.setWidth(83);
-		da0a10.setText("New Column");
-
+		
 		TableColumn da11a20 = new TableColumn(table, SWT.NONE);
 		da11a20.setWidth(83);
-		da11a20.setText("New Column");
-
+		
 		TableColumn da21a30 = new TableColumn(table, SWT.NONE);
 		da21a30.setWidth(83);
-		da21a30.setText("New Column");
 		
-		
-		
-
 		TableColumn da31a40 = new TableColumn(table, SWT.NONE);
 		da31a40.setWidth(83);
-		da31a40.setText("New Column");
-
+		
 		TableColumn da41a50 = new TableColumn(table, SWT.NONE);
 		da41a50.setWidth(83);
-		da41a50.setText("New Column");
 		
 		ti1=new TableItem(table, SWT.NONE);
 		ti2=new TableItem(table, SWT.NONE);

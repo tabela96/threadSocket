@@ -90,37 +90,7 @@ public class Server {
 				} catch (IOException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
-				}/*
-				try {
-					ss=new ServerSocket(9999);
-					Socket s=ss.accept();
-					if(check==false){
-						num1=(int)(Math.random()*10);
-						n1.setText(String.valueOf(num1));
-						PrintWriter out=new PrintWriter(s.getOutputStream(), true);
-						s.getOutputStream().write(num1);
-						num2=(int)(Math.random()*(21-11)+11);
-						n2.setText(String.valueOf(num2));
-						s.getOutputStream().write(num2);
-						num3=(int)(Math.random()*(31-21)+21);
-						n3.setText(String.valueOf(num3));
-						s.getOutputStream().write(num3);
-						num4=(int)(Math.random()*(41-31)+31);
-						n4.setText(String.valueOf(num4));
-						s.getOutputStream().write(num4);
-						num5=(int)(Math.random()*(51-41)+41);
-						n5.setText(String.valueOf(num5));
-						s.getOutputStream().write(num5);
-						check=true;
-					}else{
-						controlla.setText("Numeri già generati");
-					}	
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}*/
-				
-				
+				}			
 			}
 		});
 		btnGenera.setBounds(10, 70, 144, 25);
