@@ -97,11 +97,11 @@ public class Client {
 
 		Button btnAmbo = new Button(shlPlayer, SWT.NONE);
 		btnAmbo.setEnabled(false);
-		btnAmbo.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if(ambo){
-					btnAmbo.setEnabled(true);
+		if(ambo==true){
+			btnAmbo.setEnabled(true);
+			btnAmbo.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
 					String string = "Ambo";
 					try {
 						PrintWriter out = new PrintWriter(s.getOutputStream(), true);
@@ -111,19 +111,18 @@ public class Client {
 						e1.printStackTrace();
 					}
 				}
-
-			}
-		});
+			});
+		}
 		btnAmbo.setBounds(10, 109, 63, 71);
 		btnAmbo.setText("Ambo");
 
 		Button btnTerno = new Button(shlPlayer, SWT.NONE);
 		btnTerno.setEnabled(false);
-		btnTerno.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if(terna){
-					btnTerno.setEnabled(true);
+		if(terna==true){
+			btnTerno.setEnabled(true);
+			btnTerno.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
 					String string = "Terno";
 					try {
 						PrintWriter out = new PrintWriter(s.getOutputStream(), true);
@@ -133,17 +132,18 @@ public class Client {
 						e1.printStackTrace();
 					}
 				}
-			}
-		});
+			});
+		}
+			
 		btnTerno.setText("Terno");
 		btnTerno.setBounds(79, 109, 63, 70);
 
 		Button btnQuaterna = new Button(shlPlayer, SWT.NONE);
 		btnQuaterna.setEnabled(false);
-		btnQuaterna.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if(quaterna){
+		if(quaterna==true){
+			btnQuaterna.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
 					String string = "Quaterna";
 					try {
 						PrintWriter out = new PrintWriter(s.getOutputStream(), true);
@@ -153,18 +153,17 @@ public class Client {
 						e1.printStackTrace();
 					}
 				}
-			}
-		});
+			});
+		}
 		btnQuaterna.setText("Quaterna");
 		btnQuaterna.setBounds(149, 109, 69, 70);
 
 		Button btnCinquina = new Button(shlPlayer, SWT.NONE);
 		btnCinquina.setEnabled(false);
-		btnCinquina.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if(cinquina){
-					btnCinquina.setEnabled(true);	
+		if(cinquina==true){
+			btnCinquina.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
 					String string = "Cinquina";
 					try {
 						PrintWriter out = new PrintWriter(s.getOutputStream(), true);
@@ -174,8 +173,8 @@ public class Client {
 						e1.printStackTrace();
 					}
 				}
-			}
-		});
+			});
+		}
 		btnCinquina.setText("Cinquina");
 		btnCinquina.setBounds(224, 109, 63, 70);
 
@@ -241,21 +240,20 @@ public class Client {
 							ti3.setForeground(i, SWTResourceManager.getColor(SWT.COLOR_GREEN));
 						n++;
 					}
-						for(int i = 0;i<usciti.size();i++){
-							if(usciti.get(i) && i<12){
-								for(i=i+3;i<usciti.size();i+=3){
-									if(usciti.get(i)&&i<12){
-										ambo=true;
-										for(i=i+3;i<usciti.size();i+=3){
-											if(usciti.get(i)&&i<12){
-												terna=true;
-												for(i=i+3;i<usciti.size();i+=3){
-													if(usciti.get(i)&&i<12){
-														quaterna=true;
-														for(i=i+3;i<usciti.size();i+=3){
-															if(usciti.get(i)&&i<12){
-																cinquina=true;
-															}
+					for(int i = 0;i<usciti.size();i++){
+						if(usciti.get(i) && i<12){
+							for(i=i+3;i<usciti.size();i+=3){
+								if(usciti.get(i)&&i<12){
+									ambo=true;
+									for(i=i+3;i<usciti.size();i+=3){
+										if(usciti.get(i)&&i<12){
+											terna=true;
+											for(i=i+3;i<usciti.size();i+=3){
+												if(usciti.get(i)&&i<12){
+													quaterna=true;
+													for(i=i+3;i<usciti.size();i+=3){
+														if(usciti.get(i)&&i<12){
+															cinquina=true;
 														}
 													}
 												}
@@ -263,12 +261,10 @@ public class Client {
 										}
 									}
 								}
-								
 							}
-							
 						}
+					}
 				}
-
 				if (numeri.size() == 15) {
 					for (int i = 0; i < 5; i++) {
 						ti1.setText(i, numeri.get(n).toString());
@@ -279,7 +275,6 @@ public class Client {
 						n++;
 					}
 					numeri.add(0);
-
 				}
 			}
 		});

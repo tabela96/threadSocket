@@ -57,6 +57,7 @@ public class Server {
 		Display display = Display.getDefault();
 		createContents();
 		shlTabellone.open();
+		System.out.println("Premi tasto ACCENDI, poi avvia i CLIENT");
 		shlTabellone.layout();
 		while (!shlTabellone.isDisposed()) {
 			if (!display.readAndDispatch()) {
