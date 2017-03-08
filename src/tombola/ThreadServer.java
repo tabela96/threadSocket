@@ -12,10 +12,12 @@ public class ThreadServer extends Thread {
 	private ServerSocket ss;
 	private ArrayList<Connessione> connessioni=new ArrayList<>();
 	private	ArrayList<Integer> numeriEstratti = new ArrayList<Integer>();
+	private Server s;
 	
-	public ThreadServer() throws IOException {
+	public ThreadServer(Server s) throws IOException {
 		// TODO Auto-generated constructor stub
 		ss=new ServerSocket(9999);
+		this.s=s;
 	}
 	
 	public void run(){
@@ -51,9 +53,15 @@ public class ThreadServer extends Thread {
 				}
 			}
 		}
+		numeriEstratti.add(n);
+		if(numeriEstratti.size()==50){
+			s.bottone();
+		}
 		return n;
 	}
-	
+	public int decolora(){
+		return numeriEstratti.get(numeriEstratti.size()-2);
+	}
 	public class Connessione extends Thread{
 		private Socket s1;
 		PrintWriter out;

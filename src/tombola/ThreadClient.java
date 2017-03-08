@@ -27,6 +27,7 @@ public class ThreadClient extends Thread {
 			while(true){
 				// Quando arriva un nuovo messaggio:
 				String message=in.readLine();
+				
 				// - legge il messaggio
 				// - comunica alla grafica il nuovo messaggio
 				c.addMessage(message);
