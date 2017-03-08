@@ -77,6 +77,7 @@ public class Server {
 		btnAccendi.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				System.out.println("LA TOMBOLA È ATTIVA!");
 				try {
 					ts = new ThreadServer(Server.this);
 					ts.start();
@@ -133,8 +134,6 @@ public class Server {
 				else{
 					n1 = ts.decolora();
 				}
-				
-				
 				ts.scriviTutti(n+"");
 				int riga = n % 10;
 				int colonna = (int) ((n - 1) / 10);

@@ -76,7 +76,7 @@ public class ThreadServer extends Thread {
 		public void run(){
 			for(int i=0;i<15;i++){
 				int n=(int)(Math.random()*10) + (int)((i/3)*10)+1;
-				System.out.println("numero" + n );
+				//System.out.println("numero" + n );
 				scrivi(String.valueOf(n));
 			}
 			while(true){

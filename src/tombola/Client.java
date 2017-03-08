@@ -136,7 +136,7 @@ public class Client {
 			}
 		});
 		btnTerno.setText("Terno");
-		btnTerno.setBounds(79, 108, 63, 71);
+		btnTerno.setBounds(79, 109, 63, 70);
 
 		Button btnQuaterna = new Button(shlPlayer, SWT.NONE);
 		btnQuaterna.setEnabled(false);
@@ -156,7 +156,7 @@ public class Client {
 			}
 		});
 		btnQuaterna.setText("Quaterna");
-		btnQuaterna.setBounds(149, 108, 69, 71);
+		btnQuaterna.setBounds(149, 109, 69, 70);
 
 		Button btnCinquina = new Button(shlPlayer, SWT.NONE);
 		btnCinquina.setEnabled(false);
@@ -177,7 +177,7 @@ public class Client {
 			}
 		});
 		btnCinquina.setText("Cinquina");
-		btnCinquina.setBounds(224, 108, 63, 71);
+		btnCinquina.setBounds(224, 109, 63, 70);
 
 		Button btnTombola = new Button(shlPlayer, SWT.NONE);
 		btnTombola.setEnabled(false);
@@ -195,7 +195,7 @@ public class Client {
 			}
 		});
 		btnTombola.setText("Tombola");
-		btnTombola.setBounds(293, 108, 63, 71);
+		btnTombola.setBounds(293, 109, 63, 70);
 
 		Button btnTombolino = new Button(shlPlayer, SWT.NONE);
 		btnTombolino.setEnabled(false);
@@ -213,7 +213,7 @@ public class Client {
 			}
 		});
 		btnTombolino.setText("Tombolino");
-		btnTombolino.setBounds(362, 108, 63, 71);
+		btnTombolino.setBounds(362, 109, 63, 70);
 
 	}
 
