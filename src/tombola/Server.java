@@ -39,7 +39,6 @@ public class Server {
 	private Table table;
 	private boolean check = false; 
 	private Button btnChiamaNumero;
-	private String risultato="";
 	/**
 	 * Launch the application.
 	 * 
