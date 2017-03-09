@@ -83,6 +83,7 @@ public class ThreadServer extends Thread {
 				try {
 					String message=in.readLine();
 					System.out.println(message);
+					s.testo(message,s1);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					return;

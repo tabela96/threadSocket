@@ -9,12 +9,19 @@ import java.net.Socket;
 public class ThreadClient extends Thread {
 	private Socket s;
 	private Client c;
+	PrintWriter out;
 	
 	
 	// Deve essere inizializzato con il socket e il riferimento della grafica
 	public ThreadClient(Socket s, Client c){
 		this.c=c;
 		this.s=s;
+		try {
+			out=new PrintWriter(s.getOutputStream(), true);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -40,7 +47,6 @@ public class ThreadClient extends Thread {
 	}
 	
 	public void scrivi(String m) throws IOException{
-		PrintWriter out=new PrintWriter(s.getOutputStream(), true);
 		out.println(m);
 	}
 }

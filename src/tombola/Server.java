@@ -4,10 +4,14 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import javax.swing.JOptionPane;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
@@ -231,6 +235,7 @@ public class Server {
 		});
 		btnChiamaNumero.setBounds(253, 259, 226, 25);
 		btnChiamaNumero.setText("Chiama numero");
+		
 
 	}
 	public void bottone(){
@@ -240,5 +245,14 @@ public class Server {
 			}
 			
 		} );
+		}
+		public void testo(String message,Socket s){
+			Display.getDefault().asyncExec(new Runnable(){
+				public void run(){
+					JOptionPane.showMessageDialog(null, s.getInetAddress() + " ha fatto " + message, "WOW!!", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+			} );
+		
 	}
 }

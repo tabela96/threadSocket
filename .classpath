@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="D:/eclipse-java-neon-2-win32/eclipse/plugins/org.eclipse.wb.swt_1.9.0.201608251253.jar" sourcepath="C:/APP/eclipse/plugins/org.eclipse.equinox.registry_3.6.0.v20150318-1503.jar"/>
-	<classpathentry kind="lib" path="D:/eclipse-java-neon-2-win32/eclipse/plugins/org.eclipse.swt.win32.win32.x86_3.105.2.v20161122-0613.jar" sourcepath="C:/APP/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.104.1.v20150825-0743.jar"/>
-	<classpathentry kind="lib" path="D:/eclipse-java-neon-2-win32/eclipse/plugins/org.eclipse.swt_3.105.2.v20161122-0613.jar"/>
+	<classpathentry kind="lib" path="C:/APP/eclipse/plugins/org.eclipse.wb.swt_1.8.0.r45x201506110825.jar" sourcepath="C:/APP/eclipse/plugins/org.eclipse.equinox.registry_3.6.0.v20150318-1503.jar"/>
+	<classpathentry kind="lib" path="C:/APP/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.104.1.v20150825-0743.jar" sourcepath="C:/APP/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.104.1.v20150825-0743.jar"/>
+	<classpathentry kind="lib" path="C:/APP/eclipse/plugins/org.eclipse.swt_3.104.1.v20150825-0743.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

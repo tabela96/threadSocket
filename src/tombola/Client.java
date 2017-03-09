@@ -26,10 +26,19 @@ public class Client {
 	private TableItem ti1;
 	private TableItem ti2;
 	private TableItem ti3;
-	private boolean ambo=false;
-	private boolean terna=false;
-	private boolean quaterna=false;
-	private boolean cinquina=false;
+	private boolean ambo = false;
+	private boolean terna = false;
+	private boolean quaterna = false;
+	private boolean cinquina = false;
+	private boolean tombola = false;
+	private Button btnAmbo;
+	private Button btnTerno;
+	private Button btnQuaterna;
+	private Button btnCinquina;
+	private Button btnTombola;
+	private Button btnTombolino;
+	private ThreadClient tc;
+
 	/**
 	 * Launch the application.
 	 * 
@@ -95,98 +104,86 @@ public class Client {
 		ti2 = new TableItem(table, SWT.NONE);
 		ti3 = new TableItem(table, SWT.NONE);
 
-		Button btnAmbo = new Button(shlPlayer, SWT.NONE);
+		btnAmbo = new Button(shlPlayer, SWT.NONE);
 		btnAmbo.setEnabled(false);
-		if(ambo==true){
-			btnAmbo.setEnabled(true);
-			btnAmbo.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					String string = "Ambo";
-					try {
-						PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-						out.println(string);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+
+		btnAmbo.addSelectionListener(new SelectionAdapter() {
+			@Override	
+			public void widgetSelected(SelectionEvent e) {
+				String string = "Ambo";
+				try {
+					tc.scrivi(string);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-			});
-		}
+				
+			}
+		});
 		btnAmbo.setBounds(10, 109, 63, 71);
 		btnAmbo.setText("Ambo");
 
-		Button btnTerno = new Button(shlPlayer, SWT.NONE);
+		btnTerno = new Button(shlPlayer, SWT.NONE);
 		btnTerno.setEnabled(false);
-		if(terna==true){
-			btnTerno.setEnabled(true);
-			btnTerno.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					String string = "Terno";
-					try {
-						PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-						out.println(string);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+
+		btnTerno.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String string = "Terno";
+				try {
+					tc.scrivi(string);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-			});
-		}
-			
+			}
+		});
+
 		btnTerno.setText("Terno");
 		btnTerno.setBounds(79, 109, 63, 70);
 
-		Button btnQuaterna = new Button(shlPlayer, SWT.NONE);
+		btnQuaterna = new Button(shlPlayer, SWT.NONE);
 		btnQuaterna.setEnabled(false);
-		if(quaterna==true){
-			btnQuaterna.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					String string = "Quaterna";
-					try {
-						PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-						out.println(string);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+		btnQuaterna.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String string = "Quaterna";
+				try {
+					tc.scrivi(string);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-			});
-		}
+			}
+		});
 		btnQuaterna.setText("Quaterna");
 		btnQuaterna.setBounds(149, 109, 69, 70);
 
-		Button btnCinquina = new Button(shlPlayer, SWT.NONE);
+		btnCinquina = new Button(shlPlayer, SWT.NONE);
 		btnCinquina.setEnabled(false);
-		if(cinquina==true){
-			btnCinquina.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					String string = "Cinquina";
-					try {
-						PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-						out.println(string);
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+		btnCinquina.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				String string = "Cinquina";
+				try {
+					tc.scrivi(string);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-			});
-		}
+			}
+		});
 		btnCinquina.setText("Cinquina");
 		btnCinquina.setBounds(224, 109, 63, 70);
 
-		Button btnTombola = new Button(shlPlayer, SWT.NONE);
+		btnTombola = new Button(shlPlayer, SWT.NONE);
 		btnTombola.setEnabled(false);
 		btnTombola.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String string = "Tombola";
 				try {
-					PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-					out.println(string);
+					tc.scrivi(string);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -196,15 +193,14 @@ public class Client {
 		btnTombola.setText("Tombola");
 		btnTombola.setBounds(293, 109, 63, 70);
 
-		Button btnTombolino = new Button(shlPlayer, SWT.NONE);
+		btnTombolino = new Button(shlPlayer, SWT.NONE);
 		btnTombolino.setEnabled(false);
 		btnTombolino.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String string = "Tombolino";
 				try {
-					PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-					out.println(string);
+					tc.scrivi(string);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -221,6 +217,8 @@ public class Client {
 			@Override
 			public void run() {
 				int n = 0;
+				int temp = 0;
+				int j = 0;
 				if (numeri.size() < 15) {
 					numeri.add(Integer.parseInt(message));
 				} else {
@@ -240,20 +238,35 @@ public class Client {
 							ti3.setForeground(i, SWTResourceManager.getColor(SWT.COLOR_GREEN));
 						n++;
 					}
-					for(int i = 0;i<usciti.size();i++){
-						if(usciti.get(i) && i<12){
-							for(i=i+3;i<usciti.size();i+=3){
-								if(usciti.get(i)&&i<12){
-									ambo=true;
-									for(i=i+3;i<usciti.size();i+=3){
-										if(usciti.get(i)&&i<12){
-											terna=true;
-											for(i=i+3;i<usciti.size();i+=3){
-												if(usciti.get(i)&&i<12){
-													quaterna=true;
-													for(i=i+3;i<usciti.size();i+=3){
-														if(usciti.get(i)&&i<12){
-															cinquina=true;
+					System.out.println("-----");
+					for (int i = 0; i < usciti.size(); i++) {
+						System.out.println("primo for " + i);
+						if (usciti.get(i) && i < 15) {
+							System.out.println("primo if " + i);
+							for (j = i + 3; j < usciti.size(); j += 3) {
+								System.out.println("secondo for " + i);
+								if (usciti.get(j) && j < 15) {
+									System.out.println("ambo true " + i);
+									ambo = true;
+									btnAmbo.setEnabled(true);
+									for (j = j + 3; j < usciti.size(); j += 3) {
+										System.out.println("terzo for " + i);
+										if (usciti.get(j) && j < 15) {
+											System.out.println("terna true " + i);
+											terna = true;
+											btnTerno.setEnabled(true);
+											for (j = j + 3; j < usciti.size(); j += 3) {
+												System.out.println("quarto for " + i);
+												if (usciti.get(j) && j < 15) {
+													System.out.println("quaterna true " + i);
+													quaterna = true;
+													btnQuaterna.setEnabled(true);
+													for (j = j + 3; j < usciti.size(); j += 3) {
+														System.out.println("quinto for " + i);
+														if (usciti.get(j) && j<15) {
+															System.out.println("cinquina true " + i);
+															cinquina = true;
+															btnCinquina.setEnabled(true);
 														}
 													}
 												}
@@ -265,6 +278,16 @@ public class Client {
 						}
 					}
 				}
+				for(int i=0;i<usciti.size();i++){
+					if(usciti.get(i))
+						temp++;
+				}
+				if(temp==15){
+					tombola=true;
+					btnTombola.setEnabled(true);
+				}else{
+					temp=0;
+				}
 				if (numeri.size() == 15) {
 					for (int i = 0; i < 5; i++) {
 						ti1.setText(i, numeri.get(n).toString());
@@ -275,14 +298,18 @@ public class Client {
 						n++;
 					}
 					numeri.add(0);
+					numeri.add(0);
+					numeri.add(0);
+					numeri.add(0);
+					
 				}
 			}
 		});
 	}
 
 	public void vai() throws IOException {
-		Socket s = new Socket("localhost", 9999);
-		ThreadClient tc = new ThreadClient(s, Client.this);
+		s = new Socket("localhost", 9999);
+		tc = new ThreadClient(s, Client.this);
 		tc.start();
 		for (int i = 0; i < 15; i++)
 			usciti.add(false);
