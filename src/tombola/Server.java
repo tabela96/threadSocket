@@ -36,6 +36,7 @@ public class Server {
 	private TableItem ti9;
 	private TableItem ti10;
 	private ThreadServer ts;
+	private boolean iniziata = false;
 	private Table table;
 	private boolean check = false; 
 	private Button btnChiamaNumero;
@@ -72,6 +73,11 @@ public class Server {
 	/**
 	 * Create contents of the window.
 	 */
+	
+	public boolean getIniziata(){
+		return iniziata;
+	}
+	
 	protected void createContents() {
 		shlTabellone = new Shell();
 		shlTabellone.setSize(505, 323);
@@ -130,6 +136,7 @@ public class Server {
 		btnChiamaNumero.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				iniziata = true;
 				int n = ts.numera();
 				int n1= n;
 				if(!check){

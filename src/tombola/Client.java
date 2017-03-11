@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
@@ -107,7 +109,7 @@ public class Client {
 		btnAmbo.setEnabled(false);
 
 		btnAmbo.addSelectionListener(new SelectionAdapter() {
-			@Override	
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String string = "Ambo";
 				try {
@@ -116,7 +118,7 @@ public class Client {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
 			}
 		});
 		btnAmbo.setBounds(10, 109, 75, 71);
@@ -245,7 +247,7 @@ public class Client {
 													btnQuaterna.setEnabled(true);
 													for (j = j + 3; j < usciti.size(); j += 3) {
 														System.out.println("quinto for " + i);
-														if (usciti.get(j) && j<15) {
+														if (usciti.get(j) && j < 15) {
 															System.out.println("cinquina true " + i);
 															cinquina = true;
 															btnCinquina.setEnabled(true);
@@ -260,15 +262,15 @@ public class Client {
 						}
 					}
 				}
-				for(int i=0;i<usciti.size();i++){
-					if(usciti.get(i))
+				for (int i = 0; i < usciti.size(); i++) {
+					if (usciti.get(i))
 						temp++;
 				}
-				if(temp==15){
-					tombola=true;
+				if (temp == 15) {
+					tombola = true;
 					btnTombola.setEnabled(true);
-				}else{
-					temp=0;
+				} else {
+					temp = 0;
 				}
 				if (numeri.size() == 15) {
 					for (int i = 0; i < 5; i++) {
@@ -283,7 +285,7 @@ public class Client {
 					numeri.add(0);
 					numeri.add(0);
 					numeri.add(0);
-					
+
 				}
 			}
 		});
@@ -295,5 +297,16 @@ public class Client {
 		tc.start();
 		for (int i = 0; i < 15; i++)
 			usciti.add(false);
+	}
+
+	public void chiudi() {
+		Display.getDefault().asyncExec(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				JOptionPane.showMessageDialog(null, "La partita è già cominciata!", "OPS!", JOptionPane.ERROR_MESSAGE);
+			}
+		});
 	}
 }

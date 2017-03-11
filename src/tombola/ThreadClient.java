@@ -37,7 +37,12 @@ public class ThreadClient extends Thread {
 				
 				// - legge il messaggio
 				// - comunica alla grafica il nuovo messaggio
+				if(!message.equals(0)){
 				c.addMessage(message);
+				}else{
+					System.out.println("tioca");
+					c.chiudi();
+				}
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

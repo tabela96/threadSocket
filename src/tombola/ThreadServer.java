@@ -23,8 +23,8 @@ public class ThreadServer extends Thread {
 	public void run(){
 		while(true){
 			try {
-				Socket s=ss.accept();
-				Connessione cn=new Connessione(s);
+				Socket s1=ss.accept();
+				Connessione cn=new Connessione(s1,s);
 				connessioni.add(cn);
 				cn.start();
 			} catch (IOException e) {
@@ -64,16 +64,19 @@ public class ThreadServer extends Thread {
 	}
 	public class Connessione extends Thread{
 		private Socket s1;
+		private Server ss;
 		PrintWriter out;
 		BufferedReader in;
-		public Connessione(Socket s) throws IOException {
+		public Connessione(Socket s, Server ss) throws IOException {
 			// TODO Auto-generated constructor stub
 			s1=s;
+			this.ss=ss;
 			out=new PrintWriter(s1.getOutputStream(), true);
 			in=new BufferedReader(new InputStreamReader(s1.getInputStream()));
 		}
 		
 		public void run(){
+			if(!ss.getIniziata()){
 			for(int i=0;i<15;i++){
 				int n=(int)(Math.random()*10) + (int)((i/3)*10)+1;
 				//System.out.println("numero" + n );
@@ -90,6 +93,8 @@ public class ThreadServer extends Thread {
 					//e.printStackTrace();
 				}
 			}
+			}
+			scrivi(0+"");
 		}
 		
 		public void scrivi(String s){
