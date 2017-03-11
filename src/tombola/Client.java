@@ -224,31 +224,21 @@ public class Client {
 					}
 					System.out.println("-----");
 					for (int i = 0; i < usciti.size(); i++) {
-						System.out.println("primo for " + i);
 						if (usciti.get(i) && i < 15) {
-							System.out.println("primo if " + i);
 							for (j = i + 3; j < usciti.size(); j += 3) {
-								System.out.println("secondo for " + i);
 								if (usciti.get(j) && j < 15) {
-									System.out.println("ambo true " + i);
 									ambo = true;
 									btnAmbo.setEnabled(true);
 									for (j = j + 3; j < usciti.size(); j += 3) {
-										System.out.println("terzo for " + i);
 										if (usciti.get(j) && j < 15) {
-											System.out.println("terna true " + i);
 											terna = true;
 											btnTerno.setEnabled(true);
 											for (j = j + 3; j < usciti.size(); j += 3) {
-												System.out.println("quarto for " + i);
 												if (usciti.get(j) && j < 15) {
-													System.out.println("quaterna true " + i);
 													quaterna = true;
 													btnQuaterna.setEnabled(true);
 													for (j = j + 3; j < usciti.size(); j += 3) {
-														System.out.println("quinto for " + i);
 														if (usciti.get(j) && j < 15) {
-															System.out.println("cinquina true " + i);
 															cinquina = true;
 															btnCinquina.setEnabled(true);
 														}
